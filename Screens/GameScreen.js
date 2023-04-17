@@ -22,7 +22,7 @@ const GameScreen = ({userNumber}) => {
       <Title>Opponent's Guess </Title>
       <Text>
     <NumberContainer>
-    
+        {currentGuess}
     </NumberContainer>
       </Text>
       <View>
