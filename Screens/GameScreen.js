@@ -29,7 +29,7 @@ const GameScreen = ({ userNumber , onGameOver }) => {
       if(currentGuess ===userNumber){
         onGameOver();
       }
-    },[])
+    },[currentGuess , userNumber , onGameOver])
 
   const nextGuessHandler = (direction) => {
     if (
