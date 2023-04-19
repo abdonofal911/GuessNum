@@ -1,9 +1,9 @@
 import { Text, View , StyleSheet } from "react-native"
 import Colors from "../../constants/Colors"
 
-const InstructionText = () => {
+const InstructionText = ({children , style}) => {
   return (
-    <Text style={styles.instructionText}>Enter a Random Number</Text>
+    <Text style={[styles.instructionText , style]}>{children}</Text>
 
   )
 }
