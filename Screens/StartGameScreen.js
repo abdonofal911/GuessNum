@@ -27,38 +27,39 @@ const StartGameScreen = ({ onPickNumber }) => {
     }
     onPickNumber(chosenNumber);
   };
-  return ( <View style={styles.rootContainer}>
-    <Title>Guess My Number</Title>
-    <Card>
-    <InstructionText style={styles.instructionText}>Enter a Random Number</InstructionText>
-      <TextInput
-        style={styles.numberInput}
-        placeholder="Add"
-        maxLength={2}
-        keyboardType="number-pad"
-        autoCapitalize="none"
-        autoCorrect={false}
-        onChangeText={numberInputHandler}
-        value={enteredNumber}
-      />
-      <View style={styles.buttonsContainer}>
-        <View style={styles.buttonContainer}>
-          <PrimaryButton onPress={resetInputHandler}>Reset</PrimaryButton>
+  return (
+    <View style={styles.rootContainer}>
+      <Title>Guess My Number</Title>
+      <Card>
+        <InstructionText style={styles.instructionText}>
+          Enter a Random Number
+        </InstructionText>
+        <TextInput
+          style={styles.numberInput}
+          placeholder="Add"
+          maxLength={2}
+          keyboardType="number-pad"
+          autoCapitalize="none"
+          autoCorrect={false}
+          onChangeText={numberInputHandler}
+          value={enteredNumber}
+        />
+        <View style={styles.buttonsContainer}>
+          <View style={styles.buttonContainer}>
+            <PrimaryButton onPress={resetInputHandler}>Reset</PrimaryButton>
+          </View>
+          <View style={styles.buttonContainer}>
+            <PrimaryButton onPress={confirmInputHandler}>Confirm</PrimaryButton>
+          </View>
         </View>
-        <View style={styles.buttonContainer}>
-          <PrimaryButton onPress={confirmInputHandler}>Confirm</PrimaryButton>
-        </View>
-      </View>
-    </Card>
+      </Card>
     </View>
- 
   );
 };
 
 export default StartGameScreen;
 
 const styles = StyleSheet.create({
-  
   buttonsContainer: {
     flexDirection: "row",
   },
@@ -76,11 +77,12 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flex: 1,
   },
-  rootContainer:{
-    flex : 1 , 
-    marginTop : 100 , alignItems : 'center'
+  rootContainer: {
+    flex: 1,
+    marginTop: 100,
+    alignItems: "center",
   },
-  instructionText:{
-marginBottom:12 
-  }
+  instructionText: {
+    marginBottom: 12,
+  },
 });

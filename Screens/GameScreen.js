@@ -5,6 +5,7 @@ import NumberContainer from "../Components/game/NumberContainer";
 import PrimaryButton from "../Components/ui/PrimartButton";
 import Card from "../Components/ui/Card";
 import { AntDesign } from "@expo/vector-icons";
+import InstructionText from "../Components/ui/InstructionText";
 
 function generateRandomBetween(min, max, exclude) {
   const rndNum = Math.floor(Math.random() * (max - min)) + min;
@@ -20,11 +21,7 @@ let minBoundary = 1;
 let maxBoundary = 100;
 
 const GameScreen = ({ userNumber, onGameOver }) => {
-  const initialGuess = generateRandomBetween(
-    minBoundary,
-    maxBoundary,
-    userNumber
-  );
+  const initialGuess = generateRandomBetween(1, 100, userNumber);
   const [currentGuess, setCurrentGuess] = useState(initialGuess);
 
   useEffect(() => {
@@ -32,6 +29,8 @@ const GameScreen = ({ userNumber, onGameOver }) => {
       onGameOver();
     }
   }, [currentGuess, userNumber, onGameOver]);
+
+  useEffect(() => {minBoundary = 1 ; maxBoundary = 100 ;}, []);
 
   const nextGuessHandler = (direction) => {
     if (
@@ -61,7 +60,9 @@ const GameScreen = ({ userNumber, onGameOver }) => {
       <Title>Opponent's Guess </Title>
       <NumberContainer>{currentGuess}</NumberContainer>
       <Card>
-        <Text>Higher or Lower ?</Text>
+        <InstructionText style={styles.instructionText}>
+          Higher or Lower ?
+        </InstructionText>
         <View style={styles.buttonsContainer}>
           <View style={styles.buttonContainer}>
             <PrimaryButton onPress={nextGuessHandler.bind(this, "lower")}>
@@ -91,5 +92,8 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     flex: 1,
+  },
+  instructionText: {
+    marginBottom: 12,
   },
 });
