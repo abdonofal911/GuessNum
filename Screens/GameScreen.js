@@ -69,7 +69,7 @@ const GameScreen = ({ userNumber, onGameOver }) => {
     setGuessRounds((prevGuessRounds) => [newRndNumber, ...prevGuessRounds]);
   };
 
-  const guessRoundsListLength = guessRounds.length ; 
+  const guessRoundsListLength = guessRounds.length;
 
   return (
     <View style={styles.screen}>
@@ -98,8 +98,13 @@ const GameScreen = ({ userNumber, onGameOver }) => {
         ))*/}
         <FlatList
           data={guessRounds}
-          renderItem={(itemData) => <GuessLogItem roundNumber={guessRoundsListLength - itemData.index} guess={itemData.item}/>}
-          keyExtractor={(item)=> item}
+          renderItem={(itemData) => (
+            <GuessLogItem
+              roundNumber={guessRoundsListLength - itemData.index}
+              guess={itemData.item}
+            />
+          )}
+          keyExtractor={(item) => item}
         />
       </View>
     </View>
@@ -122,9 +127,8 @@ const styles = StyleSheet.create({
   instructionText: {
     marginBottom: 12,
   },
-  listContainer : {
-    flex : 1, 
-    padding : 16 , 
-
-    }
+  listContainer: {
+    flex: 1,
+    padding: 16,
+  },
 });
