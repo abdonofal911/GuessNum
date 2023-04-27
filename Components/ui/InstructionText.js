@@ -1,18 +1,15 @@
-import { Text, View , StyleSheet } from "react-native"
-import Colors from "../../constants/Colors"
+import { Text, View, StyleSheet } from "react-native";
+import Colors from "../../constants/Colors";
 
-const InstructionText = ({children , style}) => {
-  return (
-    <Text style={[styles.instructionText , style]}>{children}</Text>
+const InstructionText = ({ children, style }) => {
+  return <Text style={[styles.instructionText, style]}>{children}</Text>;
+};
 
-  )
-}
-
-export default InstructionText
+export default InstructionText;
 
 const styles = StyleSheet.create({
-    instructionText:{
-        color : Colors.accent500 , 
-        fontSize : 24 ,  
-      }
-})
+  instructionText: {
+    color: Colors.accent500,
+    fontSize: 24,
+  },
+});
