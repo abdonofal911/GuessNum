@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, StyleSheet, Text, TextInput,Dimensions, Button, Alert, useWindowDimensions } from "react-native";
+import { View, StyleSheet, Text, TextInput,Dimensions, Button, Alert, useWindowDimensions, KeyboardAvoidingView, ScrollView } from "react-native";
 import PrimaryButton from "../Components/ui/PrimartButton";
 import Colors from "../constants/Colors";
 import Title from "../Components/ui/Title";
@@ -31,6 +31,8 @@ const StartGameScreen = ({ onPickNumber }) => {
 
   const marginTopDistance = height< 380 ? 30 : 100 ; 
   return (
+    <ScrollView style={styles.screen}>
+    <KeyboardAvoidingView style={styles.screen} behavior="position">
     <View style={[styles.rootContainer , {marginTop : marginTopDistance}]}>
       <Title>Guess My Number</Title>
       <Card>
@@ -57,6 +59,8 @@ const StartGameScreen = ({ onPickNumber }) => {
         </View>
       </Card>
     </View>
+    </KeyboardAvoidingView>
+    </ScrollView>
   );
 };
 
@@ -91,4 +95,7 @@ const styles = StyleSheet.create({
   instructionText: {
     marginBottom: 12,
   },
+  screen : {
+    flex: 1
+  }
 });
